@@ -1,0 +1,52 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000000197a506dc, pid=57881, tid=24835
+#
+# JRE version: OpenJDK Runtime Environment Zulu15.32+15-CA (15.0.3+3) (build 15.0.3+3)
+# Java VM: OpenJDK 64-Bit Server VM Zulu15.32+15-CA (15.0.3+3, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)
+# Problematic frame:
+# C  [libsystem_malloc.dylib+0x86dc]  small_free_list_remove_ptr_no_clear+0x138
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azulsystems.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: MacBookAir10,1 arm64 1 MHz, 8 cores, 16G, Darwin 20.4.0
+Time: Sun Jun 27 13:14:02 2021 KST elapsed time: 0.691150 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000148bca5b0):  GCTaskThread "GC Thread#1" [stack: 0x0000000293894000,0x0000000293a97000] [id=24835]
+
+Stack: [0x0000000293894000,0x0000000293a97000],  sp=0x0000000293a96be0,  free space=2058k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libsystem_malloc.dylib+0x86dc]  small_free_list_remove_ptr_no_clear+0x138
+C  [libsystem_malloc.dylib+0xf6e8]  small_free_detach_region+0x8c
+C  [libsystem_malloc.dylib+0x5d6c]  free_small+0x5a8
+V  [libjvm.dylib+0x38d118]  _ZN14BasicHashtableIL10MemoryType5EE12free_bucketsEv+0x18
+V  [libjvm.dylib+0x2ebcd0]  _ZN18G1CodeRootSetTableD2Ev+0xec
+V  [libjvm.dylib+0x2ec558]  _ZN13G1CodeRootSet5clearEv+0x1c
+V  [libjvm.dylib+0x3adcc8]  _ZN16HeapRegionRemSet12clear_lockedEb+0x20
+V  [libjvm.dylib+0x3adc94]  _ZN16HeapRegionRemSet5clearEb+0x30
+V  [libjvm.dylib+0x31af5c]  _ZN19G1FullGCPrepareTask26G1CalculatePointersClosure14do_heap_regionEP10HeapRegion+0xf0
+V  [libjvm.dylib+0x3abe84]  _ZNK17HeapRegionManager11par_iterateEP17HeapRegionClosureP17HeapRegionClaimerj+0xb4
+V  [libjvm.dylib+0x31b1c8]  _ZN19G1FullGCPrepareTask4workEj+0x6c
+V  [libjvm.dylib+0x94c0b8]  _ZN10GangWorker4loopEv+0x54
+V  [libjvm.dylib+0x8c12ac]  _ZN6Thread8call_runEv+0x88
+V  [libjvm.dylib+0x711560]  _ZL19thread_native_entryP6Thread+0x1d0
+C  [libsystem_pthread.dylib+0x6fd4]  _pthread_start+0x140
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x000000016d32ca10
+
+Register to memory mapping:
+
+ x0=0x0000000100ef0300 points into unknown readable memory: 0x0000000200000000 | 00 00 00 00 02 00 00 00
+ x1=
